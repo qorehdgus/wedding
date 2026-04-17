@@ -8,7 +8,7 @@ function App() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path="/wedding/" element={<InvitationPage />} />
+        <Route path="/" element={<InvitationPage />} />
       </Route>
       <Route path="/popup" element={<PopupPage />} />
       <Route path="*" element={<NotFoundPage />} />
