@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wedding.backend.query.invitation.InvitationQueryMapper">
+
+    <select id="findAll" resultType="com.wedding.backend.query.invitation.InvitationSummaryDto">
+        SELECT
+            id,
+            title,
+            groom_name AS groomName,
+            bride_name AS brideName,
+            wedding_date AS weddingDate,
+            venue,
+            created_at AS createdAt
+        FROM invitations
+        <where>
+            <if test="venue != null and venue != ''">
+                venue = #{venue}
+            </if>
+        </where>
+        ORDER BY wedding_date ASC, id DESC
+    </select>
+</mapper>
